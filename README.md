@@ -93,34 +93,62 @@ function App() {
   const [isAccept, setAcceptToC] = useState(false);
   return (
     <div className="App">
-      <input name="firstName" type="text" value={firstName} onChange={ ev => {
-        setFirstName(ev.target.value)
-      }} />
+      <input
+        name="firstName"
+        type="text"
+        value={firstName}
+        onChange={ ev => {
+          setFirstName(ev.target.value)
+        }}
+      />
       <div>{firstName}</div>
-      <input name="lastName" type="text" value={lastName} onChange={ ev => {
-        setLastName(ev.target.value)
-      }} />
+      <input
+        name="lastName"
+        type="text"
+        value={lastName}
+        onChange={ ev => {
+          setLastName(ev.target.value)
+        }}
+      />
       <div>{lastName}</div>
       <div className="radio-group">
         <div className="radio">
-          <input name="gender" type="radio" value="Female" checked={gender==="Female"} onChange={ ev => {
-            setGender(ev.target.value)
-          }} />
+          <input
+            name="gender"
+            type="radio"
+            value="Female"
+            checked={gender==="Female"}
+            onChange={ ev => {
+              setGender(ev.target.value)
+            }}
+          />
           {' '} Female
         </div>
         <div className="radio">
-          <input name="gender" type="radio" value="Male" checked={gender==="Male"} onChange={ ev => {
-            setGender(ev.target.value)
-          }} />
+          <input
+            name="gender"
+            type="radio"
+            value="Male"
+            checked={gender==="Male"}
+            onChange={ ev => {
+              setGender(ev.target.value)
+            }}
+          />
           {' '} Male
         </div>
         <div>Selected Gender: { gender }</div>
       </div>
       <div>
         <div className="checkbox">
-          <input name="isAccept" type="checkbox" value="true" checked={isAccept==="true"} onChange={ ev => {
-            setAcceptToC(ev.target.checked)
-          }} />
+          <input
+            name="isAccept"
+            type="checkbox"
+            value="true"
+            checked={isAccept==="true"}
+            onChange={ ev => {
+              setAcceptToC(ev.target.checked)
+            }}
+          />
           {' '} I accept and agree Terms & Conditions.
         </div>
       </div>
@@ -131,27 +159,61 @@ function App() {
 #### After
 ```jsx
 function App() {
-  const [{firstName, lastName, gender, isAccept}, setValue] = useForm({firstName: "", lastName: "", gender: "Male", isAccept: false});
+  const initialValue = {
+    firstName: "",
+    lastName: "",
+    gender: "Male",
+    isAccept: false
+  }
+  const [{firstName, lastName, gender, isAccept}, setValue] = useForm(initialValue);
   return (
     <div className="App">
-      <input name="firstName" type="text" value={firstName} onChange={setValue} />
+      <input
+        name="firstName"
+        type="text"
+        value={firstName}
+        onChange={setValue}
+      />
       <div>{firstName}</div>
-      <input name="lastName" type="text" value={lastName} onChange={setValue} />
+      <input
+        name="lastName"
+        type="text"
+        value={lastName}
+        onChange={setValue}
+      />
       <div>{lastName}</div>
       <div className="radio-group">
         <div className="radio">
-          <input name="gender" type="radio" value="Female" checked={gender==="Female"} onChange={setValue} />
+          <input
+            name="gender"
+            type="radio"
+            value="Female"
+            checked={gender==="Female"}
+            onChange={setValue}
+          />
           {' '} Female
         </div>
         <div className="radio">
-          <input name="gender" type="radio" value="Male" checked={gender==="Male"} onChange={setValue} />
+          <input
+            name="gender"
+            type="radio"
+            value="Male"
+            checked={gender==="Male"}
+            onChange={setValue}
+          />
           {' '} Male
         </div>
         <div>Selected Gender: { gender }</div>
       </div>
       <div>
         <div className="checkbox">
-          <input name="isAccept" type="checkbox" value="true" checked={isAccept==="true"} onChange={setValue} />
+          <input
+            name="isAccept"
+            type="checkbox"
+            value="true"
+            checked={isAccept==="true"}
+            onChange={setValue}
+          />
           {' '} I accept and agree Terms & Conditions.
         </div>
       </div>
